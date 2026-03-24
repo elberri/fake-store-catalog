@@ -10,7 +10,7 @@
 
 ## 📁 Repositorio
 
-[URL del repositorio]
+[URL del repositorio](https://github.com/elberri/fake-store-catalog.git)
 
 ## 🛠️ Instalación
 
