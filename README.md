@@ -27,3 +27,5 @@
 ## 👥 Integrantes del Equipo
 
 - Alexis Rodriguez
+
+# Luxe Store Catalog > README.md
