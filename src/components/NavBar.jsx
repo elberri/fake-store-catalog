@@ -1,30 +1,39 @@
-import { useNavigate } from 'react-router-dom'
-import { Search, Heart, ShoppingBag, User } from 'lucide-react'
-import SearchBar from './SearchBar'
+import { useNavigate } from "react-router-dom";
+import { Search, Heart, ShoppingBag, User } from "lucide-react";
+import SearchBar from "./SearchBar";
 
 export default function Navbar() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const categories = ["electronics", "jewelry", "men's clothing", "women's clothing"]
+  const categories = [
+    "electronics",
+    "jewelry",
+    "men's",
+    "women's",
+  ];
 
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50">
       <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
+        <div className="flex items-center gap-1 shrink-0">
+        <button className="text-blue-600">
+          <ShoppingBag size={20} fill="currentColor" />
+        </button>
 
-        {/* Logo */}
         <h1
-          onClick={() => navigate('/')}
-          className="text-xl font-bold text-gray-900 cursor-pointer shrink-0"
+          onClick={() => navigate("/")}
+          className="text-xl font-bold text-gray-900 cursor-pointer"
         >
           LUXE.
         </h1>
+        </div>
 
         {/* Links de categorías */}
-        <nav className="hidden sm:flex items-center gap-4">
-          {categories.map(category => (
+        <nav className="hidden sm:flex items-center gap-4 mr-auto">
+          {categories.map((category) => (
             <span
               key={category}
-              className="text-sm text-gray-600 capitalize cursor-pointer hover:text-blue-600 transition"
+              className="text-sm  capitalize cursor-pointer hover:text-blue-600 transition"
             >
               {category}
             </span>
@@ -36,7 +45,6 @@ export default function Navbar() {
 
         {/* Iconos de acción */}
         <div className="flex items-center gap-3 shrink-0">
-
           {/* Favoritos */}
           <button className="text-gray-600 hover:text-blue-600 transition">
             <Heart size={20} />
@@ -54,10 +62,8 @@ export default function Navbar() {
           <button className="text-gray-600 hover:text-blue-600 transition">
             <User size={20} />
           </button>
-
         </div>
-
       </div>
     </header>
-  )
+  );
 }
