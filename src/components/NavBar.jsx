@@ -1,15 +1,16 @@
-import { useNavigate } from "react-router-dom";
-import { Search, Heart, ShoppingBag, User } from "lucide-react";
+import { useNavigate, useParams } from "react-router-dom";
+import { Heart, ShoppingBag, User } from "lucide-react";
 import SearchBar from "./SearchBar";
 
 export default function Navbar() {
   const navigate = useNavigate();
+  const { category: activeCategory } = useParams();
 
   const categories = [
     "electronics",
-    "jewelry",
-    "men's",
-    "women's",
+    "jewelery",
+    "men's clothing",
+    "women's clothing",
   ];
 
   return (
@@ -30,10 +31,16 @@ export default function Navbar() {
 
         {/* Links de categorías */}
         <nav className="hidden sm:flex items-center gap-4 mr-auto">
+          {/* ✅ Botón All agregado para volver a todos los productos */}
           {categories.map((category) => (
             <span
               key={category}
-              className="text-sm  capitalize cursor-pointer hover:text-blue-600 transition"
+              onClick={() => navigate(`/products/category/${category}`)}
+              className={`text-sm capitalize cursor-pointer transition
+              ${activeCategory === category
+              ? 'text-blue-600 font-semibold'
+              : 'text-gray-600 hover:text-blue-600'
+              }`}
             >
               {category}
             </span>
