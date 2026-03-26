@@ -10,6 +10,7 @@ export default function ProductCard({ product }) {
       <img
         src={product.image}
         alt={product.title}
+        onClick={() => navigate(`/product/${product.id}`)}
         className="w-full h-48 object-contain"
       />
       <div className="flex flex-col gap-1 flex-1">
